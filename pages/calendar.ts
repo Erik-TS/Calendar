@@ -12,7 +12,6 @@ enum Month {
     nov = "November",
     dec = "December"
 }
-
 function getMonthName(month: number) {
     switch (month) {
         case 0: return Month.jan
@@ -41,7 +40,7 @@ function getDaysRange(date: Date) {
     let month = date.getMonth()
 
     if (month === 1) {
-        if(isLeapYear(date.getFullYear())) return 29
+        if (isLeapYear(date.getFullYear())) return 29
         return 28
     }
     else if (month === 0 || month === 2 || month === 4 || month === 6 ||
@@ -49,19 +48,21 @@ function getDaysRange(date: Date) {
     else return 30
 }
 
-function getDaysArr(range: number){
-    let arr = []
-
-    for(let i = 0; i < range; i++){
-        arr.push(i + 1)
-    }
-
-    return arr
-}
-
 let currentDate = new Date()
 
-const calendarData = {
+export class Day {
+    monthDay: number;
+    weekDay: number;
+    isToday: boolean;
+
+    constructor(monthDay: number, weekDay: number, isToday: boolean) {
+        this.monthDay = monthDay,
+        this.weekDay = weekDay,
+        this.isToday = isToday
+    }
+}
+
+export const calendarData = {
     currentDate: currentDate,
     currentDay: currentDate.getDate(),
     month: getMonthName(currentDate.getMonth()),
@@ -69,4 +70,16 @@ const calendarData = {
     year: currentDate.getFullYear()
 }
 
-export default calendarData
+export function generateDays(currentDate: Date) {
+    let days = new Array<Day>
+    let limit = getDaysRange(currentDate)
+    let year = currentDate.getFullYear()
+    let month = currentDate.getMonth()
+
+    for (let i = 0; i < limit; i++) {
+        const today = new Date().getDate() === i
+        days.push(new Day((i + 1), new Date(`${year}/${month}/${i}`).getDay(), today))
+    }
+
+    return days
+}
