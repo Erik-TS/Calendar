@@ -1,0 +1,15 @@
+.day{
+    background-color: #BCCEF8;
+    display: inline-block;
+    width: 5vw;
+    height: 10vh;
+    border: 1px solid black;
+}
+
+.day p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    width: 1vw;
+    margin: 0;
+    padding-top: 2rem;
+}

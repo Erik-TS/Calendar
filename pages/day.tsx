@@ -1,6 +1,8 @@
-export default function Day(props){
+import styles from '../css/day.module.css'
+
+export default function Day(props: {number: number}){
     return(
-        <div className={'day'}>
+        <div className={styles.day}>
             <p>{props.number}</p>
         </div>
     )
