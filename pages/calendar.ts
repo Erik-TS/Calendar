@@ -12,6 +12,7 @@ enum Month {
     nov = "November",
     dec = "December"
 }
+
 function getMonthName(month: number) {
     switch (month) {
         case 0: return Month.jan
@@ -62,12 +63,41 @@ export class Day {
     }
 }
 
+export class Week {
+    _days: Array<Day>;
+    _order: number;
+
+    constructor(days: Array<Day>, order: number) {
+        this._days = days
+        this._order = order;
+    }
+
+    public addDay(day: Day) {
+        if (this._days.length === 0) {
+            this._days[6] = day
+            this._days.fill(new Day(0, 0, false), 0, 6)
+        }
+        else if (this._days[0].monthDay === 0) {
+            this._days.shift()
+            this._days.push(day)
+        }
+    }
+
+    public lastWeek() {
+        this._days = this._days.sort((a, b) => {
+            if (b.monthDay > 0) return 1
+            return -1
+        })
+    }
+}
+
 export const calendarData = {
     currentDate: currentDate,
     currentDay: currentDate.getDate(),
-    month: getMonthName(currentDate.getMonth()),
     daysRange: getDaysRange(new Date()),
-    year: currentDate.getFullYear()
+    // Properties not used yet
+    /* month: getMonthName(currentDate.getMonth()),
+    year: currentDate.getFullYear() */
 }
 
 export function generateDays(currentDate: Date) {
@@ -78,7 +108,7 @@ export function generateDays(currentDate: Date) {
 
     for (let i = 0; i < limit; i++) {
         const today = new Date().getDate() === i
-        days.push(new Day((i + 1), new Date(`${year}/${month}/${i}`).getDay(), today))
+        days.push(new Day((i + 1), new Date(year, month, (i + 1)).getDay(), today))
     }
 
     return days

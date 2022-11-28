@@ -1,22 +1,42 @@
-import Week from "./week"
 import * as calendar from './calendar'
+import Week from "./week"
 
 export default function () {
 
-    const daysArr = calendar.generateDays(new Date())
-    const week1 = daysArr.filter((value, index) => index >= 0 && index < 7)
-    const week2 = daysArr.filter((value, index) => index >= 7 && index < 14)
-    const week3 = daysArr.filter((value, index) => index >= 14 && index < 21)
-    const week4 = daysArr.filter((value, index) => index >= 21 && index < 28)
-    const week5 = daysArr.filter((value, index) => index >= 28 && index < 31)
+    let daysArr = calendar.generateDays(new Date())
+    const firstDay = daysArr[0].weekDay
+
+    const week1 = new calendar.Week([], 0)
+    const week2 = new calendar.Week([], 0)
+    const week3 = new calendar.Week([], 0)
+    const week4 = new calendar.Week([], 0)
+    const week5 = new calendar.Week([], 0)
+
+    const weeksArr = [week2, week3, week4, week5]
+
+    daysArr.forEach((value, index) => {
+        if (index <= (6 - firstDay)) {
+            week1.addDay(value)
+        }
+    })
+    daysArr = daysArr.filter((v, i) => i > (6 - firstDay))
+
+    weeksArr.forEach(week => {
+        daysArr.forEach((value, i) => {
+            if (i < 7) week.addDay(value)
+        })
+        daysArr = daysArr.filter((v, j) => j >= 7)
+    })
+
+    week5.lastWeek()
 
     return (
         <div>
-            <Week days={week1} />
-            <Week days={week2} />
-            <Week days={week3} />
-            <Week days={week4} />
-            <Week days={week5} />
+            <Week week={week1} />
+            <Week week={week2} />
+            <Week week={week3} />
+            <Week week={week4} />
+            <Week week={week5} />
         </div>
     )
 }
