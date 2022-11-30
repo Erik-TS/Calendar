@@ -1,6 +1,6 @@
 import Day from "./day"
 import * as calendarLogic from './calendarLogic'
-import styles from '../css/week.module.css'
+import styles from '../css/week.module.scss'
 
 export default function Week(props: { week: calendarLogic.Week }) {
 

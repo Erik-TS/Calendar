@@ -1,4 +1,4 @@
-import styles from '../css/day.module.css'
+import styles from '../css/day.module.scss'
 
 export default function Day(props: {monthDay: number, weekDay: number, isToday: boolean}){
     return(

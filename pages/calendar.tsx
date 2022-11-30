@@ -1,7 +1,7 @@
 import * as calendarLogic from './calendarLogic'
 import Week from './week'
 import WeekDay from './weekDay'
-import style from '../css/calendar.module.css'
+import style from '../css/calendar.module.scss'
 
 export default function Calendar(props: { weeks: Array<calendarLogic.Week>, monthName: string, year: number, today: number }) {
     return (
