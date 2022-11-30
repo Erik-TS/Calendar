@@ -1,0 +1,6 @@
+.weekDay{
+    width: 5vw;
+    background-color: goldenrod;
+    display: inline-block;
+    border: 1px solid;
+}

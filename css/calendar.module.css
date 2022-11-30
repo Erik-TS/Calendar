@@ -1,0 +1,13 @@
+.calendar {
+    background-color: yellow;
+}
+
+.calendar ul {
+    padding: 0;
+    margin: 0;
+}
+
+.row {
+    height: 5vh;
+    text-align: center;
+}

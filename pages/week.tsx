@@ -1,12 +1,12 @@
 import Day from "./day"
-import * as calendar from './calendar'
+import * as calendarLogic from './calendarLogic'
 import styles from '../css/week.module.css'
 
-export default function Week(props: { week: calendar.Week }) {
+export default function Week(props: { week: calendarLogic.Week }) {
 
     return (
         <div className={styles.week}>
-            {props.week._days.map((value: calendar.Day, index: number) => {
+            {props.week._days.map((value: calendarLogic.Day, index: number) => {
                 if (index < 7) {
                     return (
                         <Day key={Math.random()}
@@ -20,5 +20,5 @@ export default function Week(props: { week: calendar.Week }) {
 }
 
 Week.defaultProps = {
-    days: [new calendar.Day(1, 0, true)]
+    days: [new calendarLogic.Day(1, 0, true)]
 }

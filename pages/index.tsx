@@ -1,18 +1,19 @@
-import * as calendar from './calendar'
+import * as calendarLogic from './calendarLogic'
 import Week from "./week"
+import Calendar from './calendar'
 
 export default function () {
 
-    let daysArr = calendar.generateDays(new Date())
+    let daysArr = calendarLogic.generateDays(new Date())
     const firstDay = daysArr[0].weekDay
 
-    const week1 = new calendar.Week([], 0)
-    const week2 = new calendar.Week([], 0)
-    const week3 = new calendar.Week([], 0)
-    const week4 = new calendar.Week([], 0)
-    const week5 = new calendar.Week([], 0)
+    const week1 = new calendarLogic.Week([], 0)
+    const week2 = new calendarLogic.Week([], 0)
+    const week3 = new calendarLogic.Week([], 0)
+    const week4 = new calendarLogic.Week([], 0)
+    const week5 = new calendarLogic.Week([], 0)
 
-    const weeksArr = [week2, week3, week4, week5]
+    let weeksArr = [week2, week3, week4, week5]
 
     daysArr.forEach((value, index) => {
         if (index <= (6 - firstDay)) {
@@ -29,14 +30,11 @@ export default function () {
     })
 
     week5.lastWeek()
+    weeksArr.unshift(week1)
 
     return (
         <div>
-            <Week week={week1} />
-            <Week week={week2} />
-            <Week week={week3} />
-            <Week week={week4} />
-            <Week week={week5} />
+            <Calendar weeks={weeksArr} />
         </div>
     )
 }
