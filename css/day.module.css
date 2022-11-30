@@ -16,3 +16,7 @@
 .day0{
     visibility: hidden;
 }
+
+.today{
+    background-color: #FCC72C;
+}

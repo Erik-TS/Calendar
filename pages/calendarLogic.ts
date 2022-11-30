@@ -107,7 +107,7 @@ export function generateDays(currentDate: Date) {
     let month = currentDate.getMonth()
 
     for (let i = 0; i < limit; i++) {
-        const today = new Date().getDate() === i
+        const today = new Date().getDate() === i + 1
         days.push(new Day((i + 1), new Date(year, month, (i + 1)).getDay(), today))
     }
 
