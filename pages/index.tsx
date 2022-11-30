@@ -1,5 +1,4 @@
 import * as calendarLogic from './calendarLogic'
-import Week from "./week"
 import Calendar from './calendar'
 
 export default function () {

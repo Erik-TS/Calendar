@@ -1,6 +1,15 @@
 .weekDay{
     width: 5vw;
-    background-color: goldenrod;
+    background-color: #CF0A2C;
     display: inline-block;
+    height: 100%;
     border: 1px solid;
+}
+
+.weekDay p{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin: 0;
 }

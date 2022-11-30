@@ -1,7 +1,7 @@
 .day{
-    background-color: #BCCEF8;
+    background-color: #b9b9b9;
     display: inline-block;
-    width: 5.005vw;
+    width: 5vw;
     height: 10vh;
     border: 1px solid black;
     text-align: center;
@@ -10,8 +10,7 @@
 .day p{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5rem;
-    margin: 0;
-    padding-top: 2rem;
+    margin: 25% 0 0;
 }
 
 .day0{
