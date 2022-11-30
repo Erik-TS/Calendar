@@ -95,9 +95,8 @@ export const calendarData = {
     currentDate: currentDate,
     currentDay: currentDate.getDate(),
     daysRange: getDaysRange(new Date()),
-    // Properties not used yet
-    /* month: getMonthName(currentDate.getMonth()),
-    year: currentDate.getFullYear() */
+    month: getMonthName(currentDate.getMonth()),
+    year: currentDate.getFullYear()
 }
 
 export function generateDays(currentDate: Date) {

@@ -33,7 +33,10 @@ export default function () {
 
     return (
         <div>
-            <Calendar weeks={weeksArr} />
+            <Calendar weeks={weeksArr}
+                monthName={calendarLogic.calendarData.month}
+                year={calendarLogic.calendarData.year}
+                today={calendarLogic.calendarData.currentDay} />
         </div>
     )
 }
